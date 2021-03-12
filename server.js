@@ -4,9 +4,9 @@ const path = require("path");
 const awsServerlessExpressMiddleware = require("aws-serverless-express/middleware");
 
 // API routes
-const hello = require("./api-test/.next/serverless/pages/api/hello");
+const hello = require("./nextjs-app/.next/serverless/pages/api/hello");
 // App pages
-const home = require("./api-test/.next/serverless/pages/index");
+const home = require("./nextjs-app/.next/serverless/pages/index");
 
 const dev = process.env.NODE_ENV !== "production";
 
@@ -18,7 +18,7 @@ const createServer = () => {
 
   server.use(
     "/_next",
-    express.static(path.join(__dirname, "./api-test/.next"))
+    express.static(path.join(__dirname, "./nextjs-app/.next"))
   );
 
   server.use(helmet());
